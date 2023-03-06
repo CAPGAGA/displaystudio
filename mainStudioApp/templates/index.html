@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--CSS styles-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
+    <link rel="stylesheet" href="{% static 'css/video.css'%}">
+    <link rel="stylesheet" href="{% static 'css/aboutus.css'%}">
+    <link rel="stylesheet" href="{% static 'css/aboutservice.css'%}">
+    <link rel="stylesheet" href="{% static 'css/forhouse.css'%}">
+    <link rel="stylesheet" href="{% static 'css/contactform.css'%}">
+    <link rel="stylesheet" href="{% static 'css/galleryentry.css'%}">
+    <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+    <style>
+      @font-face {
+          font-family: "Sneaky";
+          src: url({% static 'fonts/Sneaky-Times.woff2' %}) format("woff2"),
+               url({% static 'fonts/Sneaky-Times.woff' %}) format("woff");
+        }
+
+    </style>
+
+    <title>Shutters</title>
+</head>
+<body>
+<div class="header-wrapper">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'images/logo_transparent.png' %}" alt="Logo" width="75" height="75">
+    </a>
+    <div class="navbar-nav">
+      <a class="navbarButton" href="#aboutus">О нас</a>
+      <a class="navbarButton" href="#ourstrategy">Наши принципы</a>
+      <a class="navbarButton" href="#gallery">Наши работы</a>
+      <a class="navbarButton" href="#footer">Контакты</a>
+    </div>
+  </nav>
+</div>
+<div class="page-wrapper">
+  <div class="video-wrapper">
+    <div class="video">
+      <video autoplay muted>
+        <source src="{% static 'images/heroVideo.mp4' %}" type="video/mp4">
+      </video>
+    </div>
+    <div class="overlay">
+      <h1 class="hero-text text-center">Шаттерсы которые действительно <span style="text-decoration: underline">ваши</span></h1>
+      <h3 class="hero-text text-center">Превращаем идеи в качественную реальность на профессиональном оборудовании</h3>
+      <a class="videoButton text-center" href="{% url 'form' %}">Обсудим ваш проект</a>
+    </div>
+  </div>
+  <div class="about-service-wrapper">
+    <div class="about-service-header text-center" id="aboutus">
+      <b>О НАС</b>
+    </div>
+    <div class="row">
+      <div class="col right-col">
+        <div class="about-service-card right">
+          <h1>ПРЕВРАЩАЕМ ПРОЕКТЫ В ИССКУСТВО</h1>
+          <p>
+            Мы занимаемся производством шаттерсов как из благородных
+            пород дерева: кипарис, красное дерево, дерево крашенное
+            по нашей инновационной технологии, а так же МДФ. Кроме того,
+            мы спокойно реализуем любой ваш проект связанный с мебелью или декором!
+          </p>
+        </div>
+      </div>
+      <div class="col center-col">
+        <div class="about-service-card center">
+          <h1>НАШИ СПЕЦИАЛИЗАЦИИ</h1>
+          <p>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="50.000000pt" height="50.000000pt" viewBox="0 0 100.000000 100.000000" preserveAspectRatio="xMidYMid meet">
+              <g transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+              <path d="M270 796 c0 -29 -7 -39 -50 -72 -42 -32 -50 -43 -50 -71 l0 -33 165 0 165 0 0 34 c0 29 -7 39 -50 72 -42 32 -50 43 -50 71 l0 33 -65 0 -65 0 0 -34z m110 -14 c0 -21 10 -35 40 -58 22 -16 40 -32 40 -36 0 -5 -57 -8 -127 -8 l-128 1 39 34 c30 27 49 35 80 37 l41 1 -37 4 c-33 4 -38 8 -38 29 0 22 4 24 45 24 43 0 45 -1 45 -28z m100 -127 c0 -13 -23 -15 -145 -15 -122 0 -145 2 -145 15 0 13 23 15 145 15 122 0 145 -2 145 -15z"/>
+              <path d="M190 541 l-35 -6 -3 -140 c-2 -77 0 -159 3 -182 l6 -43 168 0 169 0 6 31 c11 57 7 327 -5 335 -14 8 -261 12 -309 5z m300 -51 l0 -30 -160 0 -160 0 0 30 0 30 160 0 160 0 0 -30z m0 -155 l0 -115 -160 0 -160 0 0 115 0 115 160 0 160 0 0 -115z m0 -145 c0 -6 -60 -10 -160 -10 -100 0 -160 4 -160 10 0 6 60 10 160 10 100 0 160 -4 160 -10z"/>
+              <path d="M440 490 c0 -5 5 -10 10 -10 6 0 10 5 10 10 0 6 -4 10 -10 10 -5 0 -10 -4 -10 -10z"/>
+              <path d="M287 423 c24 -2 62 -2 86 0 23 2 4 4 -43 4 -47 0 -66 -2 -43 -4z"/>
+              <path d="M204 376 c-3 -7 -4 -38 -2 -67 l3 -54 125 0 125 0 1 43 1 42 -4 -40 -4 -40 -120 0 -119 0 0 60 0 59 88 4 87 3 -88 2 c-66 2 -89 -1 -93 -12z"/>
+              <path d="M420 383 c14 -3 29 -10 33 -17 6 -7 7 -6 4 4 -2 8 -16 16 -33 17 -25 1 -26 0 -4 -4z"/>
+              <path d="M537 534 c-9 -9 -9 -290 -1 -333 l7 -31 148 0 148 0 6 43 c3 23 5 105 3 182 l-3 140 -151 3 c-82 1 -153 -1 -157 -4z m293 -59 c0 -44 -1 -45 -32 -47 l-33 -1 33 -4 32 -4 0 -100 0 -99 -140 0 -140 0 0 100 0 100 103 2 102 2 -102 3 -103 4 0 44 0 45 140 0 140 0 0 -45z m0 -285 c0 -6 -53 -10 -140 -10 -87 0 -140 4 -140 10 0 6 53 10 140 10 87 0 140 -4 140 -10z"/>
+              <path d="M658 473 c17 -2 47 -2 65 0 17 2 3 4 -33 4 -36 0 -50 -2 -32 -4z"/>
+              <path d="M583 345 c0 -27 2 -38 4 -22 2 15 2 37 0 50 -2 12 -4 0 -4 -28z"/>
+              </g>
+              </svg>
+          </p>
+          <p>КУХНИ</p>
+          <p>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="50.000000pt" height="50.000000pt" viewBox="0 0 64.000000 64.000000" preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+            <path d="M20 530 c0 -36 3 -40 25 -40 l25 0 0 -185 c0 -158 2 -185 15 -185 9 0 15 -9 15 -25 0 -24 2 -25 70 -25 68 0 70 1 70 25 0 16 6 25 15 25 13 0 15 27 15 185 0 158 2 185 15 185 8 0 15 4 15 10 0 5 -55 11 -132 12 -110 3 -133 6 -133 18 0 12 22 15 123 18 166 4 160 22 -8 22 l-130 0 0 -40z m230 -90 l0 -50 -80 0 -80 0 0 50 0 50 80 0 80 0 0 -50z m0 -120 l0 -50 -80 0 -80 0 0 50 0 50 80 0 80 0 0 -50z m0 -125 c0 -54 0 -55 -30 -55 -16 0 -30 -4 -30 -10 0 -5 7 -10 15 -10 8 0 15 -7 15 -15 0 -11 -12 -15 -50 -15 -38 0 -50 4 -50 15 0 8 7 15 15 15 8 0 15 5 15 10 0 6 -13 10 -30 10 -30 0 -30 1 -30 55 l0 55 80 0 80 0 0 -55z"/>
+            <path d="M160 430 c0 -5 5 -10 10 -10 6 0 10 5 10 10 0 6 -4 10 -10 10 -5 0 -10 -4 -10 -10z"/>
+            <path d="M160 310 c0 -5 5 -10 10 -10 6 0 10 5 10 10 0 6 -4 10 -10 10 -5 0 -10 -4 -10 -10z"/>
+            <path d="M160 180 c0 -5 5 -10 10 -10 6 0 10 5 10 10 0 6 -4 10 -10 10 -5 0 -10 -4 -10 -10z"/>
+            <path d="M310 560 c0 -5 5 -10 10 -10 6 0 10 5 10 10 0 6 -4 10 -10 10 -5 0 -10 -4 -10 -10z"/>
+            <path d="M360 560 c0 -5 52 -11 123 -12 100 -3 122 -6 122 -18 0 -12 -23 -15 -132 -18 -78 -1 -133 -7 -133 -12 0 -6 7 -10 15 -10 13 0 15 -27 15 -185 0 -158 2 -185 15 -185 9 0 15 -9 15 -25 0 -24 2 -25 70 -25 68 0 70 1 70 25 0 16 6 25 15 25 13 0 15 27 15 185 l0 185 25 0 c23 0 25 4 25 40 l0 40 -130 0 c-77 0 -130 -4 -130 -10z m190 -245 l0 -175 -30 0 c-16 0 -30 -4 -30 -10 0 -5 7 -10 15 -10 8 0 15 -7 15 -15 0 -11 -12 -15 -50 -15 -38 0 -50 4 -50 15 0 8 7 15 15 15 8 0 15 5 15 10 0 6 -13 10 -30 10 l-30 0 0 175 0 175 80 0 80 0 0 -175z"/>
+            <path d="M510 315 c0 -25 5 -45 10 -45 6 0 10 20 10 45 0 25 -4 45 -10 45 -5 0 -10 -20 -10 -45z"/>
+            <path d="M420 336 c-27 -33 18 -72 48 -42 13 13 14 20 6 34 -15 23 -38 26 -54 8z m38 -17 c-2 -6 -8 -10 -13 -10 -5 0 -11 4 -13 10 -2 6 4 11 13 11 9 0 15 -5 13 -11z"/>
+            </g>
+            </svg>
+          </p>
+          <p>ДЕКОР</p>
+          <p>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="50.000000pt" height="50.000000pt" viewBox="0 0 50.000000 50.000000" preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(0.000000,50.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+            <path d="M60 425 c-26 -32 13 -81 48 -59 22 14 27 41 12 59 -16 19 -44 19 -60 0z m46 -16 c10 -17 -13 -36 -27 -22 -12 12 -4 33 11 33 5 0 12 -5 16 -11z"/>
+            <path d="M380 425 c-26 -32 13 -81 48 -59 22 14 27 41 12 59 -16 19 -44 19 -60 0z m46 -16 c10 -17 -13 -36 -27 -22 -12 12 -4 33 11 33 5 0 12 -5 16 -11z"/>
+            <path d="M62 338 c-16 -16 -16 -132 0 -146 7 -6 27 -12 43 -15 19 -3 13 -4 -15 -3 l-45 1 -3 83 c-2 45 -7 82 -12 82 -13 0 -13 -167 0 -175 6 -4 8 -26 4 -56 -4 -31 -3 -49 4 -49 5 0 13 20 16 45 7 44 8 45 42 45 l36 0 -7 -39 c-8 -48 -5 -50 125 -50 130 0 133 2 125 50 l-7 39 36 0 c34 0 35 -1 42 -45 3 -25 11 -45 16 -45 7 0 8 18 4 49 -4 30 -2 52 4 56 13 8 13 175 0 175 -5 0 -10 -37 -12 -82 l-3 -83 -45 -1 c-28 -1 -33 0 -13 3 45 6 54 23 51 94 -2 46 -8 65 -20 73 -30 19 -53 -4 -56 -58 -3 -44 -22 -57 -22 -15 0 18 -8 19 -100 19 -92 0 -100 -1 -100 -19 0 -11 -4 -23 -10 -26 -6 -4 -10 11 -10 37 0 46 -13 68 -40 68 -9 0 -21 -5 -28 -12z m46 -66 c2 -37 7 -52 18 -52 7 0 14 -5 14 -11 0 -6 -14 -9 -32 -7 -32 3 -33 5 -36 52 -4 56 3 79 21 74 7 -3 13 -26 15 -56z m317 -8 l0 -59 -32 -3 c-19 -2 -33 1 -33 7 0 6 7 11 15 11 11 0 15 12 15 48 0 27 3 52 7 56 17 17 28 -5 28 -60z m-92 -11 c3 -10 8 -40 12 -68 3 -27 8 -62 11 -77 5 -26 3 -28 -25 -28 -26 0 -31 4 -31 25 0 14 -4 25 -10 25 -5 0 -10 -11 -10 -25 0 -21 -5 -25 -30 -25 -28 0 -30 3 -30 35 0 19 -4 35 -10 35 -5 0 -10 -16 -10 -35 0 -32 -2 -35 -31 -35 -28 0 -30 2 -25 27 3 16 8 51 11 78 12 89 7 85 95 85 66 0 79 -3 83 -17z"/>
+            </g>
+            </svg>
+          </p>
+          <p>РЕСТОРАНЫ И КАФЕ</p>
+        </div>
+      </div>
+      <div class="col left-col">
+        <div class="about-service-card left">
+          <img src="{% static 'images/shatter_hero.jpg' %}">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-us-wrapper" id="ourstrategy">
+    <h1 class="text-center mb-2 mt-5">Наши принципы работы</h1>
+    <div class="container">
+      <div class="about-us-card-wrapper">
+        <div class="row">
+          <div class="col col-6">
+            <div class="about-us-card left-text">
+              <h5>Тонкая работа</h5>
+              <h4>Оборудование производственного стандарта</h4>
+              <p>
+                Каждый наш проект выполняется на профессиональном оборудовании с использованием передового программного обеспечения
+              </p>
+            </div>
+          </div>
+          <div class="col col-6 right image">
+            <div class="about-us-image-wrapper">
+              <img class="about-us-image" src="{% static 'images/CHPU 1.png' %}">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-us-card-wrapper">
+        <div class="row">
+          <div class="col col-6 left image">
+            <div class="about-us-image-wrapper">
+              <img class="about-us-image" src="{% static 'images/logs.jpg' %}">
+            </div>
+          </div>
+          <div class="col col-6">
+            <div class="about-us-card right-text">
+              <h5>Материалы</h5>
+              <h4>Богатый выбор лучшей древесины и искусственного камня</h4>
+              <p>
+                Мы тщательно относимся к выбору сырья, гарантируя красоту и долговечность конечного изделия
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-us-card-wrapper">
+        <div class="row">
+          <div class="col col-6">
+            <div class="about-us-card left-text">
+              <h5>Качество</h5>
+              <h4>Контроль качества на каждом этапе</h4>
+              <p>
+                Каждое наше изделие проходит многоуровневый контроль качества, начиная от сырья, заканчивая конечным продуктом
+              </p>
+            </div>
+          </div>
+          <div class="col col-6 right image">
+            <div class="about-us-image-wrapper">
+              <img class="about-us-image" src="{% static 'images/checklist.jpg' %}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-form-wrapper" id="contact-form">
+    <h1 class="text-center">Остались вопросы?</h1>
+    <h3 class="text-center">Заполните небольшую форму ниже и наш специалист свяжется с вами</h3>
+      <div class="form-card">
+        <form>
+          {{csrftoken}}
+          <div class="form__group field">
+            <input required="required" placeholder="Имя" class="form__field" type="text" id="form-name">
+            <label class="form__label" >Имя</label>
+          </div>
+          <div class="form__group field">
+            <input required="" placeholder="Телефон" class="form__field" type="tel" id="form-phone">
+            <label class="form__label" >Телефон</label>
+          </div>
+          <div class="form__group field">
+            <input required="" placeholder="Email" class="form__field" type="email" id="form-email">
+            <label class="form__label" >Email</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="form-check">
+            <label class="form-check-label" for="form-check">
+              <a data-bs-toggle="modal" data-bs-target="#Modal" style="cursor: pointer;">
+                <ins>Согласие на обработку персональных данных</ins>
+              </a>
+            </label>
+          </div>
+          <button type="button" class="form-button" id="form-button">Отправить</button>
+        </form>
+      </div>
+  </div>
+  <div class="gallery-enter-wrapper mt-5" id="gallery">
+    <h1 class="text-center mb-3">Галереи наших работ</h1>
+    <div class="gallery-wrapper">
+      <div class="gallery-card">
+        <p><b>Шаттерсы</b></p>
+        <a class="more-button" href="{% url 'shatters-gallery' %}">
+          <span>Подробнее</span>
+        </a>
+        <img src="{% static 'images/shutters.jpg' %}">
+      </div>
+      <div class="gallery-card">
+        <p><b>Декор для дома</b></p>
+        <a class="more-button" href="{% url 'home-decor-gallery' %}">
+          <span>Подробнее</span>
+        </a>
+        <img src="{% static 'images/home.jpg' %}">
+      </div>
+      <div class="gallery-card">
+        <p><b>Кухни</b></p>
+        <a class="more-button" href="{% url 'kitchen-decor-gallery' %}">
+          <span>Подробнее</span>
+        </a>
+        <img src="{% static 'images/kitchen.jpg' %}">
+      </div>
+    </div>
+  </div>
+  <div class="footer-wrapper" id="footer">
+    <div class="row">
+      <div class="col about">
+        <img src="{% static 'images/logo.png' %}">
+        <p>Для связи с нами по любым вопросам используйте:</p>
+        <p>Тел: todo: tel</p>
+        <p>Email: todo: email</p>
+      </div>
+      <div class="col map">
+        <a href="#">О нас</a>
+        <a href="#">Наши работы</a>
+        <a href="#">Для дома</a>
+        <a href="#">Для бизнеса</a>
+        <a href="#">Контакты</a>
+      </div>
+      <div class="col social">
+        <h3>Под соцсети</h3>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="ModalLabel">Согласие на обработку персональных данных</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+          Настоящим я, во исполнение требований Федерального закона от 27.07.2006 г. № 152-ФЗ «О
+          персональных данных» (с изменениями и дополнениями) свободно, своей волей и своем интересе,
+          а также подтверждая свою дееспособность, даю свое согласие Индивидуальному предпринимателю ЗИМИН АЛЕКСАНДР БОРИСОВИЧ
+          (ОГРН 323774600128753), место нахождения: 115516, РОССИЯ, Г. МОСКВА, УЛ. БЕХТЕРЕВА, Д. 35 КОРП. 1, КВ. 3,
+          сайт ИП: shutters.su на обработку
+          своих персональных данных со следующими условиям:
+          </p>
+          <ul>
+            <li>
+              Данное Согласие дается на обработку персональных данных, как без использования
+              средств автоматизации, так и с их использованием. Согласие дается на обработку следующих
+              моих персональных данных: фамилия, имя, отчество; номер телефона (домашний/ сотовый);
+              электронная почта; пользовательские данные (сведения о местоположении, тип и версия ОС, тип и
+              версия Браузера, тип устройства и разрешение его экрана; источник, откуда пришел на сайт
+              пользователь; с какого сайта или по какой рекламе; язык ОС и Браузера; какие страницы открывает
+              и на какие кнопки нажимает пользователь; ip-адрес); данные обо мне, которые станут известны в
+              ходе исполнения договоров (в случае заключения договора между мной и ИП), а также
+              иная общедоступная информация обо мне.
+            </li>
+            <li>
+              Персональные данные не являются общедоступными.
+            </li>
+            <li>
+              Цель обработки персональных данных: обработка входящих запросов физических лиц с
+              целью оказания консультирования по различным вопросам, относящимся к сфере
+              предпринимательской деятельности ИП; аналитики действий физического лица на вебсайте и функционирования веб-сайта.
+            </li>
+            <li>
+              Основанием для обработки персональных данных является статья 24 Конституции
+              Российской Федерации; статья 6 Федерального закона № 152-ФЗ «О персональных данных»;
+              настоящее Согласие посетителя сайта на обработку персональных данных.
+            </li>
+            <li>
+              В ходе обработки с персональными данными будут совершены следующие действия: сбор,
+              запись, систематизация, накопление, хранение, уточнение (обновление, изменение), извлечение,
+              использование, передача (распространение, предоставление, доступ), блокирование, удаление,
+              уничтожение.
+            </li>
+            <li>
+              Настоящим я уведомлен ИП, что предполагаемыми пользователями персональных
+              данных являются работники ИП, а также лица, привлеченные ИП на условиях
+              гражданско-правового договора.
+            </li>
+            <li>
+              Я ознакомлен (а), что:
+            </li>
+            <ul>
+              <li>
+                настоящее Согласие на обработку моих персональных данных является бессрочным и
+                может быть отозвано посредством направления мною в адрес ИП (115516, РОССИЯ, Г. МОСКВА, УЛ. БЕХТЕРЕВА, Д. 35 КОРП. 1, КВ. 3,)
+                письменного заявления. Датой отзыва
+                считается день, следующий за днем вручения ИП письменного заявления об отзыве
+                Согласия пользователя сайта на обработку персональных данных;
+              </li>
+              <li>
+                имею право на доступ к моим персональным данным, требовать уточнения (обновление,
+                изменение) моих персональных данных, а также удаления и уничтожения моих персональных
+                данных в случае их обработки ИП, нарушающих мои законные права и интересы,
+                законодательство Российской Федерации.
+              </li>
+              <li>
+                в случае отзыва Согласия на обработку персональных данных ИП вправе
+                продолжить обработку персональных данных без моего согласия при наличии оснований,
+                указанных в пунктах 2.11 части 1 статьи 6, части 2 статьи 10 и части 2 статьи 11 Федерального
+                закона №152-ФЗ «О персональных данных» от 27.07.2006 г
+              </li>
+            </ul>
+            <li>
+              Я обязуюсь в случае изменения моих персональных данных, сведений обо мне
+              незамедлительно сообщить ИП, с предоставлением подтверждающих документов.
+            </li>
+            <li>
+              Настоящим Согласием я подтверждаю, что являюсь субъектом предоставляемых
+              персональных данных, а также подтверждаю достоверность предоставляемых данных.
+            </li>
+            <li>
+              Настоящее Согласие действует все время до момента прекращения обработки
+              персональных данных, согласно п. 7.1 Согласия.
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--JS scripts-->
+<script src="{% static 'js/jquery-3.6.1.min.js'%}"></script>
+<script src="{% static 'js/popper.min.js'%}"></script>
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/bootstrap.js'%}"></script>
+<script src="{% static 'js/scrollspysmooth.js'%}"></script>
+<script src="{% static 'js/forms-api.js'%}"></script>
+</body>
+</html>

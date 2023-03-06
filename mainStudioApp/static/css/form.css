@@ -1,0 +1,59 @@
+{% load static %}
+.form-wrapper{
+}
+
+
+
+.form{
+    background:rgb(46, 44, 44);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 10px 10px 5px rgb(0 0 0 / 10%);
+}
+
+.form h5{
+    color: #F3DFBA;
+    padding-left: 5%;
+    margin-top: 4%;
+
+}
+
+.form-body{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    position:relative;
+}
+
+.form-group{
+    width: 30rem;
+    padding-left: 4%;
+}
+
+.info-group{
+    width: 14rem;
+    color: #F3DFBA;
+    position: relative;
+
+}
+.info-group ul{
+    list-style: none;
+}
+
+.info-group li{
+    margin-bottom: 8px;
+}
+
+.info-group span{
+    padding-left: 5px;
+}
+
+.info-group .form-button{
+    text-decoration: none;
+    position: absolute;
+    right: calc(6px + 12%);
+    bottom: 5%;
+}
