@@ -3,7 +3,7 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
     <!--CSS styles-->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="{% static 'css/navbar.css'%}">
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/contactform.css'%}">
     <link rel="stylesheet" href="{% static 'css/galleryentry.css'%}">
     <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+    <link rel="stylesheet" href="{% static 'css/constructor.css'%}">
     <style>
       @font-face {
           font-family: "Sneaky";
@@ -22,8 +23,10 @@
         }
 
     </style>
-
     <title>Shutters</title>
+    <meta name="description" content="Shutters.su, мы производим и поставляем шаттерсы ручной работы из лучших материалов, в том числе из уникального материала POLYSTYLE">
+    <meta name="keywords" content="Шаттерсы, Polystyle, ручные изделия, мебель, декор">
+    <meta name="author" content="Quadevents.me">
 </head>
 <body>
 <div class="header-wrapper">
@@ -63,7 +66,7 @@
           <p>
             Мы занимаемся производством шаттерсов как из благородных
             пород дерева: кипарис, красное дерево, дерево крашенное
-            по нашей инновационной технологии, а так же МДФ. Кроме того,
+            по нашей инновационной технологии, а так же уникального для российского рынка материала <span>Polystyle</span>. Кроме того,
             мы спокойно реализуем любой ваш проект связанный с мебелью или декором!
           </p>
         </div>
@@ -121,6 +124,7 @@
       </div>
     </div>
   </div>
+
   <div class="about-us-wrapper" id="ourstrategy">
     <h1 class="text-center mb-2 mt-5">Наши принципы работы</h1>
     <div class="container">
@@ -182,7 +186,7 @@
   </div>
   <div class="contact-form-wrapper" id="contact-form">
     <h1 class="text-center">Остались вопросы?</h1>
-    <h3 class="text-center">Заполните небольшую форму ниже и наш специалист свяжется с вами</h3>
+    <h3 class="text-center">Заполните короткую форму ниже и наш специалист свяжется с вами</h3>
       <div class="form-card">
         <form>
           {{csrftoken}}
@@ -210,6 +214,7 @@
         </form>
       </div>
   </div>
+
   <div class="gallery-enter-wrapper mt-5" id="gallery">
     <h1 class="text-center mb-3">Галереи наших работ</h1>
     <div class="gallery-wrapper">
@@ -236,6 +241,67 @@
       </div>
     </div>
   </div>
+  <div class="constructor-outer">
+    <div class="constructor-wrapper">
+      <h2 class="text-center mb-2">Рассчитайте ваш проект</h2>
+      <div class="radio-buttons">
+        <h3>Материал</h3>
+        <div>
+          <input type="radio" class="construct-radio" id="olha" name="material">
+          <label for="olha">Ольха</label>
+        </div>
+        <div>
+          <input type="radio" class="construct-radio" id="buk" name="material">
+          <label for="buk">Бук</label>
+        </div>
+        <div>
+          <input type="radio" class="construct-radio" id="dub" name="material">
+          <label for="dub">Дуб</label>
+        </div>
+        <div>
+          <input type="radio" class="construct-radio" id="oreh" name="material">
+          <label for="oreh">Американский орех</label>
+        </div>
+        <div>
+          <input type="radio" class="construct-radio" id="kiparis" name="material">
+          <label for="kiparis">Кипарис(без покрытия)</label>
+        </div>
+        <div>
+          <input type="radio" class="construct-radio" id="polystyle" name="material">
+          <label for="polystyle">POLYSTYLE© (USA)</label>
+        </div>
+      </div>
+      <div class="metric-slider">
+        <h3>Площадь окна/всех окон</h3>
+        <input type="range" class="construct-slider" min="0.1" max="20" step="0.1" value="10" id="m-range">
+        <p id="m-total">Ваша площадь: </p>
+      </div>
+      <div class="checkbox-wrapper">
+        <h5>Дополнительные услуги</h5>
+        <div>
+          <input type="checkbox" id="metr-mkad" class="constructor-checkbox">
+          <label for="metr-mkad">Замеры(До МКАД)</label>
+        </div>
+        <div>
+          <input type="checkbox" id="metr-pst-mkad" class="constructor-checkbox">
+          <label for="metr-pst-mkad">Замеры(За МКАД)</label>
+        </div>
+        <div>
+          <input type="checkbox" id="delivery" class="constructor-checkbox">
+          <label for="delivery">Доставка</label>
+        </div>
+        <div>
+          <input type="checkbox" id="montage" class="constructor-checkbox">
+          <label for="montage">Монтаж</label>
+        </div>
+      </div>
+      <p class="total-price" id="total">
+        ИТОГ: 0руб.
+      </p>
+      <a href="{% url 'form' %}" class="constructor form-button ">Заказать звонок!</a>
+  <!--    <a class="videoButton text-center" href="{% url 'form' %}">Сделать заказ</a>-->
+    </div>
+  </div>
   <div class="footer-wrapper" id="footer">
     <div class="row">
       <div class="col about">
@@ -250,10 +316,6 @@
         <a href="#">Для дома</a>
         <a href="#">Для бизнеса</a>
         <a href="#">Контакты</a>
-      </div>
-      <div class="col social">
-        <h3>Под соцсети</h3>
-
       </div>
     </div>
 
@@ -365,5 +427,6 @@
 <script src="{% static 'js/bootstrap.js'%}"></script>
 <script src="{% static 'js/scrollspysmooth.js'%}"></script>
 <script src="{% static 'js/forms-api.js'%}"></script>
+<script src="{% static 'js/constructor.js'%}"></script>
 </body>
 </html>

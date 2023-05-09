@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="{% static 'css/404.css'%}">
+  <title>404</title>
+</head>
+<body>
+  <h1>404 Страница не найдена или переехала</h1>
+  <p class="zoom-area"><b>Нам очень жаль :(</b> </p>
+  <section class="error-container">
+    <span>4</span>
+    <span><span class="screen-reader-text">0</span></span>
+    <span>4</span>
+  </section>
+  <div class="link-container">
+    <a target="_blank" href="{% url 'index' %}" class="more-link">Перейти на основную страницу</a>
+  </div>
+</body>
+</html>

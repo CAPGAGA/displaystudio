@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import FormRequests
+from django.template import RequestContext
 import json
 
 def index(request):
@@ -35,3 +36,10 @@ def get_form(request):
         return JsonResponse('Request received and saved', safe=False)
     except:
         return JsonResponse('Empty form', safe=False)
+
+def error_404(request, exception=None):
+    return render(request, 'error_404.html', status=404)
+
+
+def handler404(request, *args, **argv):
+    return render(request, 'error_404.html', status=404)
