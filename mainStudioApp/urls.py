@@ -9,7 +9,8 @@ urlpatterns = [
     path('shatters-gallery', views.shatters_gallery, name='shatters-gallery'),
     path('form', views.form, name='form'),
     path('404', views.error_404, name='404'),
-    path('get-form', views.get_form, name='form-url'),
+    path('get-form/<str:name>/<int:phone>/<str:email>', views.get_form, name='form-url'),
+    path('register-telegram/<str:user_name>/<int:user_id>', views.registration_telegram)
 ]
 
 # handler404 = views.error_404

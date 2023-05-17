@@ -10,15 +10,16 @@ $("#form-button").click(function(){
 
 function send_request(name, phone, email){
     const url = 'get-form'
+    var encoded_email = encodeURIComponent(email);
     var csrftoken = getCookie('csrftoken');
 
-    fetch(url, {
+    fetch(url.concat('/',name,'/',phone,'/',encoded_email), {
         method: 'POST',
         headers:{
             'Content-Type':'application/json',
             'X-CSRFToken': csrftoken,
         },
-        body:JSON.stringify({'name':name, 'phone': phone, 'email': email})
+//        body:JSON.stringify({'name':name, 'phone': phone, 'email': email})
     })
 
     .then((response) =>{

@@ -1,8 +1,20 @@
+import http
+
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import FormRequests
-from django.template import RequestContext
 import json
+from . import bot
+import asyncio
+
+from urllib.parse import unquote
+
+from .models import BotTrustedUsers
+
+from django.views.decorators.csrf import csrf_exempt
+
+import logging
+logging.basicConfig(filename='error.log', encoding='utf-8', level=logging.DEBUG)
 
 def index(request):
     return render(request, 'index.html')
@@ -19,27 +31,32 @@ def shatters_gallery(request):
 def form(request):
     return render(request, 'form.html')
 
-def get_form(request):
+def get_form(request, name, phone, email):
     try:
-        data = json.loads(request.body)
+        name = unquote(name)
+        email = unquote(email)
+        # data = json.loads(request.body)
         # Get values from post
-        name = data['name']
-        phone = data['phone']
-        email = data['email']
-
+        logging.info(f'got data from front name {name}, phone {phone}, email {email}')
         # Save values into bd
         new_request = FormRequests.objects.create(name=name, phone=phone, email=email)
         new_request.save()
+        logging.info('saved to db')
+        for user in BotTrustedUsers.objects.all():
+            print(f'sent to {user.user_id}')
+            asyncio.run(bot.send(chat=user.user_id, msg=f'Получена заявка № {new_request.id}\nОт: {new_request.name}\nТелефон: {new_request.phone}\nEmail: {new_request.email}\nДата: {new_request.date}'))
+            logging.info(f'sent to user {user.user_id}')
 
-        #TODO email heandler integration
-
-        return JsonResponse('Request received and saved', safe=False)
+        return JsonResponse('Request received and saved', safe=False, status=http.HTTPStatus.OK)
     except:
+        logging.info('error in form or bot')
         return JsonResponse('Empty form', safe=False)
 
 def error_404(request, exception=None):
     return render(request, 'error_404.html', status=404)
 
-
-def handler404(request, *args, **argv):
-    return render(request, 'error_404.html', status=404)
+@csrf_exempt
+def registration_telegram(request, user_name, user_id):
+    user, created = BotTrustedUsers.objects.get_or_create(name=user_name, user_id = user_id)
+    user.save()
+    return JsonResponse('Registered', status=http.HTTPStatus.OK, safe=False)

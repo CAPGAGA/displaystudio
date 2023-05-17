@@ -9,9 +9,24 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import logging
 from pathlib import Path
 import os
+
+# init .env file
+from dotenv import load_dotenv
+dotenv_path = os.path.join(Path(__file__).resolve().parent.parent, '.env')
+# print(dotenv_path)
+load_dotenv(dotenv_path)
+
+DJANGO_KEY = str(os.getenv('DJANGO_KEY'))
+TELEGRAM_PASSWORD = str(os.getenv('TELEGRAM_PASSWORD'))
+TELEGRAM_TOKEN = str(os.getenv('TELEGRAM_TOKEN'))
+DB_LOGIN = str(os.getenv('DB_LOGIN'))
+DB_PASSWORD = str(os.getenv('DB_PASSWORD'))
+DB_NAME = str(os.getenv('DB_NAME'))
+DB_HOST = str(os.getenv('DB_HOST'))
+# print(f'DJANGO_KEY - {DJANGO_KEY}, TELEGRAM_PASSWORD - {TELEGRAM_PASSWORD}, TELEGRAM_TOKEN - {TELEGRAM_TOKEN}')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y!cfhoq7=bmcevgzba3$1=cx#80xn6w*vl8u5=#s-1cswzc_i^'
+SECRET_KEY = DJANGO_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mainStudioApp'
+    'mainStudioApp',
+    'displayStudio',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +93,11 @@ WSGI_APPLICATION = 'displayStudio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': DB_NAME,
+        'USER': DB_LOGIN,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
     }
 }
 
