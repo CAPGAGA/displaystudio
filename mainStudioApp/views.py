@@ -1,9 +1,27 @@
+import logging
+logger = logging.getLogger('server_logger')
+logger.setLevel(logging.DEBUG)
+# create file handler which logs even debug messages
+fh = logging.FileHandler('server.log')
+fh.setLevel(logging.DEBUG)
+# create console handler with a higher log level
+ch = logging.StreamHandler()
+ch.setLevel(logging.ERROR)
+# create formatter and add it to the handlers
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+ch.setFormatter(formatter)
+fh.setFormatter(formatter)
+# add the handlers to logger
+logger.addHandler(ch)
+logger.addHandler(fh)
+
 import http
 
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import FormRequests
 import json
+
 from . import bot
 import asyncio
 
@@ -13,8 +31,8 @@ from .models import BotTrustedUsers
 
 from django.views.decorators.csrf import csrf_exempt
 
-import logging
-logging.basicConfig(filename='error.log', encoding='utf-8', level=logging.DEBUG)
+# import logging
+# logging.basicConfig(filename='error.log', encoding='utf-8', level=logging.DEBUG)
 
 def index(request):
     return render(request, 'index.html')
@@ -31,25 +49,26 @@ def shatters_gallery(request):
 def form(request):
     return render(request, 'form.html')
 
+@csrf_exempt
 def get_form(request, name, phone, email):
     try:
         name = unquote(name)
         email = unquote(email)
         # data = json.loads(request.body)
         # Get values from post
-        logging.info(f'got data from front name {name}, phone {phone}, email {email}')
+        logger.info(f'got data from front name {name}, phone {phone}, email {email}')
         # Save values into bd
         new_request = FormRequests.objects.create(name=name, phone=phone, email=email)
         new_request.save()
-        logging.info('saved to db')
+        logger.info('saved to db')
         for user in BotTrustedUsers.objects.all():
             print(f'sent to {user.user_id}')
             asyncio.run(bot.send(chat=user.user_id, msg=f'Получена заявка № {new_request.id}\nОт: {new_request.name}\nТелефон: {new_request.phone}\nEmail: {new_request.email}\nДата: {new_request.date}'))
-            logging.info(f'sent to user {user.user_id}')
+            logger.info(f'sent to user {user.user_id}')
 
         return JsonResponse('Request received and saved', safe=False, status=http.HTTPStatus.OK)
     except:
-        logging.info('error in form or bot')
+        logger.info('error in form or bot')
         return JsonResponse('Empty form', safe=False)
 
 def error_404(request, exception=None):
