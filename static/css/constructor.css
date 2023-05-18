@@ -1,0 +1,54 @@
+.constructor-outer{
+    margin: 10%;
+}
+
+.constructor-wrapper{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 0.5fr repeat(2, 1fr) 0.5fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: #F3DFBA;
+    padding: 5%
+}
+
+.constructor{
+    color:#CE9627;
+    text-decoration: none;
+}
+
+
+
+.constructor-wrapper h2{
+    grid-area: 1 / 1 / 2 / 3;
+}
+
+.radio-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: 2 / 1 / 4 / 2;
+    border-left: 3px solid #CE9627;
+    padding-left: 4%;
+}
+
+.metric-slider{
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+#m-range{
+    width:100%;
+    accent-color: #CE9627;
+}
+
+.checkbox-wrapper{
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+.total-price {
+    grid-area: 4 / 1 / 5 / 3;
+}
+
+#total{
+    padding-top: 3%;
+}

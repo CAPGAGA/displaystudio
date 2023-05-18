@@ -1,0 +1,89 @@
+.gallery-enter-wrapper{
+
+}
+.gallery-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.gallery-card{
+    position:relative;
+    z-index:1;
+    height:100%;
+    border: 3px solid #F3DFBA;
+    width: 100%;
+    margin: 0 2% 0;
+    background: white;
+    transition: all 2s;
+    flex: 1;
+}
+
+.gallery-card img{
+    overflow: hidden;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-card:hover{
+    flex: 6;
+}
+
+.gallery-card p{
+    background: linear-gradient(180deg, #f3dfba, transparent);
+    margin:0;
+    padding-left: 2%;
+    position: absolute;
+    width: 100%;
+}
+
+.more-button {
+ position: absolute;
+ bottom:0;
+ border-radius: 4px;
+ background-color: #deae4f;
+ border: none;
+ color: #FFFFFF;
+ text-align: center;
+ font-size: 17px;
+ padding: 10px;
+ transition: all 0.5s;
+ cursor: pointer;
+ margin: 5px;
+}
+
+.more-button span {
+ cursor: pointer;
+ position: relative;
+ transition: 0.5s;
+
+}
+.gallery-card a:link{
+    text-decoration:none;
+}
+.more-button span:hover{
+    color:white;
+
+}
+
+.more-button span:after {
+ content: '»';
+ position: absolute;
+ opacity: 0;
+ top: 0;
+ right: -15px;
+ transition: 0.5s;
+}
+
+.more-button:hover span {
+ padding-right: 15px;
+}
+
+.more-button:hover span:after {
+ opacity: 1;
+ right: 0;
+}
